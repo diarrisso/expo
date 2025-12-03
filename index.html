@@ -238,6 +238,80 @@
             color: #ffd700;
         }
 
+        /* Dark Mode - FAQ Section */
+        body.dark-mode .faq-section {
+            background: #1a1a1a;
+        }
+
+        body.dark-mode .faq-section h2 {
+            color: var(--kiwi-light);
+        }
+
+        body.dark-mode .accordion-item {
+            border-bottom-color: #3d3d3d;
+        }
+
+        body.dark-mode .accordion-question-text {
+            color: var(--charcoal);
+        }
+
+        body.dark-mode .accordion-answer-content {
+            color: var(--earth-brown);
+        }
+
+        body.dark-mode .accordion-icon svg {
+            stroke: var(--kiwi-light);
+        }
+
+        /* Dark Mode - Footer */
+        body.dark-mode .footer-new {
+            background: #1a1a1a;
+            border-top: 1px solid #3d3d3d;
+        }
+
+        body.dark-mode .footer-contact-item,
+        body.dark-mode .footer-contact-item a,
+        body.dark-mode .footer-nav a {
+            color: var(--charcoal);
+        }
+
+        body.dark-mode .footer-contact-item a:hover,
+        body.dark-mode .footer-nav a:hover {
+            color: var(--kiwi-light);
+        }
+
+        body.dark-mode .footer-copyright {
+            border-top-color: #3d3d3d;
+        }
+
+        /* Dark Mode - Contact Modal */
+        body.dark-mode .contact-modal-content {
+            background: #1e1e1e;
+        }
+
+        body.dark-mode .contact-modal-header {
+            background: linear-gradient(135deg, #2d2d2d 0%, #1a1a1a 100%);
+        }
+
+        body.dark-mode .contact-modal-close {
+            background: #3d3d3d;
+            color: var(--charcoal);
+        }
+
+        body.dark-mode .contact-modal-close:hover {
+            background: var(--kiwi-dark);
+        }
+
+        body.dark-mode .contact-quick-link {
+            background: #2d2d2d;
+            color: var(--charcoal);
+        }
+
+        body.dark-mode .contact-quick-link:hover {
+            background: var(--kiwi-dark);
+            border-color: var(--kiwi-light);
+        }
+
         /* Navigation Actions */
         .nav-actions {
             display: flex;
@@ -270,6 +344,45 @@
         .btn-cta svg {
             width: 18px;
             height: 18px;
+        }
+
+        /* Small CTA Button - Angebote */
+        .btn-cta-small {
+            display: flex;
+            align-items: center;
+            gap: 0.4rem;
+            background: white;
+            color: var(--kiwi-green);
+            padding: 0.6rem 1.2rem;
+            border-radius: 9999px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.85rem;
+            transition: all 0.3s ease;
+            border: 2px solid var(--kiwi-green);
+        }
+
+        .btn-cta-small:hover {
+            background: var(--kiwi-green);
+            color: white;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(104, 159, 56, 0.3);
+        }
+
+        .btn-cta-small svg {
+            width: 16px;
+            height: 16px;
+        }
+
+        body.dark-mode .btn-cta-small {
+            background: #2d2d2d;
+            color: var(--kiwi-light);
+            border-color: var(--kiwi-light);
+        }
+
+        body.dark-mode .btn-cta-small:hover {
+            background: var(--kiwi-dark);
+            color: white;
         }
 
         /* Mobile Menu Toggle */
@@ -368,10 +481,83 @@
             border-bottom-color: #2d2d2d;
         }
 
+        /* Hero Version Toggle */
+        .hero-version-toggle {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            z-index: 999;
+            background: white;
+            border: 2px solid var(--kiwi-green);
+            border-radius: 50px;
+            padding: 0.75rem 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            cursor: pointer;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+            transition: all 0.3s ease;
+            font-weight: 600;
+            font-size: 0.9rem;
+            color: var(--forest-green);
+        }
+
+        .hero-version-toggle:hover {
+            background: var(--kiwi-green);
+            color: white;
+            transform: translateY(-3px);
+            box-shadow: 0 6px 30px rgba(139, 195, 74, 0.3);
+        }
+
+        .hero-version-toggle svg {
+            width: 20px;
+            height: 20px;
+            transition: transform 0.3s ease;
+        }
+
+        .hero-version-toggle:hover svg {
+            transform: rotate(180deg);
+        }
+
+        body.dark-mode .hero-version-toggle {
+            background: #2d2d2d;
+            border-color: var(--kiwi-light);
+            color: var(--kiwi-light);
+        }
+
+        body.dark-mode .hero-version-toggle:hover {
+            background: var(--kiwi-dark);
+            color: white;
+        }
+
+        /* Hero Transition */
+        .hero, .hero-alt {
+            transition: opacity 0.3s ease, transform 0.3s ease;
+        }
+
+        .hero.fade-out, .hero-alt.fade-out {
+            opacity: 0;
+            transform: scale(0.98);
+        }
+
+        /* Hide hero version by default */
+        .hero-alt {
+            display: none;
+        }
+
+        .hero-alt.active {
+            display: flex;
+        }
+
+        .hero.inactive {
+            display: none;
+        }
+
         /* Responsive Styles */
         @media (max-width: 992px) {
             .nav-container,
-            .btn-cta {
+            .btn-cta,
+            .btn-cta-small {
                 display: none;
             }
 
@@ -385,6 +571,22 @@
 
             .logo-text span {
                 font-size: 0.65rem;
+            }
+
+            .hero-version-toggle {
+                bottom: 20px;
+                right: 20px;
+                padding: 0.6rem 1.2rem;
+                font-size: 0.8rem;
+            }
+
+            .hero-version-toggle span {
+                display: none;
+            }
+
+            .hero-version-toggle svg {
+                width: 18px;
+                height: 18px;
             }
         }
 
@@ -625,6 +827,156 @@
             color: var(--earth-brown);
         }
 
+        /* Hero Alternative - Fullscreen avec image personne */
+        /* POUR ACTIVER: Remplacer class="hero" par class="hero-alt" dans le HTML */
+        .hero-alt {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            padding: 0;
+            background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.4)),
+                        url('https://images.unsplash.com/photo-1621905252507-b35492cc74b4?q=80&w=1920&auto=format&fit=crop') center/cover;
+            background-attachment: fixed;
+            overflow: hidden;
+        }
+
+        .hero-alt::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(circle at center, transparent 0%, rgba(0, 0, 0, 0.3) 100%);
+            pointer-events: none;
+        }
+
+        .hero-alt .hero-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+            text-align: center;
+            position: relative;
+            z-index: 2;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 2rem;
+        }
+
+        .hero-alt .hero-content {
+            max-width: 800px;
+        }
+
+        .hero-alt .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: rgba(139, 195, 74, 0.15);
+            backdrop-filter: blur(20px);
+            padding: 0.75rem 1.5rem;
+            border-radius: 50px;
+            font-size: 0.9rem;
+            color: white;
+            font-weight: 600;
+            margin-bottom: 2rem;
+            border: 1px solid rgba(139, 195, 74, 0.3);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .hero-alt h1 {
+            font-family: var(--font-display);
+            font-size: clamp(3rem, 7vw, 5.5rem);
+            color: white;
+            line-height: 1.1;
+            margin-bottom: 2rem;
+            text-shadow: 3px 3px 10px rgba(0, 0, 0, 0.5);
+            font-weight: 700;
+            letter-spacing: -1px;
+        }
+
+        .hero-alt h1 span {
+            color: var(--kiwi-light);
+            display: block;
+            font-size: 0.85em;
+            margin-top: 0.5rem;
+        }
+
+        .hero-alt p {
+            font-size: 1.25rem;
+            color: rgba(255, 255, 255, 0.95);
+            margin-bottom: 3rem;
+            line-height: 1.8;
+            text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.4);
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .hero-alt .hero-buttons {
+            display: flex;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .hero-alt .btn {
+            padding: 1.25rem 2.5rem;
+            font-size: 1.1rem;
+            box-shadow: 0 6px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        .hero-alt .btn-primary {
+            background: var(--kiwi-green);
+            border: 2px solid var(--kiwi-green);
+        }
+
+        .hero-alt .btn-primary:hover {
+            background: var(--kiwi-dark);
+            border-color: var(--kiwi-dark);
+            transform: translateY(-5px);
+            box-shadow: 0 10px 40px rgba(139, 195, 74, 0.4);
+        }
+
+        .hero-alt .btn-secondary {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            color: white;
+            border: 2px solid white;
+        }
+
+        .hero-alt .btn-secondary:hover {
+            background: white;
+            color: var(--kiwi-dark);
+        }
+
+        .hero-alt .hero-scroll-indicator {
+            position: absolute;
+            bottom: 3rem;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0.5rem;
+            color: white;
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            animation: bounce 2s ease-in-out infinite;
+            cursor: pointer;
+        }
+
+        @keyframes bounce {
+            0%, 100% { transform: translateX(-50%) translateY(0); }
+            50% { transform: translateX(-50%) translateY(10px); }
+        }
+
+        .hero-alt .hero-scroll-indicator svg {
+            width: 24px;
+            height: 24px;
+            stroke: white;
+        }
+
         /* Services Section */
         .services {
             padding: var(--section-padding) 2rem;
@@ -760,20 +1112,18 @@
         .about-image-main {
             width: 100%;
             height: 600px;
-            background: var(--gradient-nature);
+            background: url('https://images.unsplash.com/photo-1621905252507-b35492cc74b4?q=80&w=800&auto=format&fit=crop') center/cover;
             border-radius: 30px;
             position: relative;
+            overflow: hidden;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
         }
 
-        .about-image-main::before {
-            content: 'Toni Janis';
+        .about-image-main::after {
+            content: '';
             position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            color: white;
-            font-family: var(--font-display);
-            font-size: 1.5rem;
+            inset: 0;
+            background: linear-gradient(180deg, transparent 0%, rgba(0,0,0,0.3) 100%);
         }
 
         .experience-badge {
@@ -1990,6 +2340,20 @@
                 order: -1;
             }
 
+            /* Hero Alternative Responsive */
+            .hero-alt h1 {
+                font-size: clamp(2.5rem, 6vw, 4rem);
+            }
+
+            .hero-alt p {
+                font-size: 1.1rem;
+            }
+
+            .hero-alt .btn {
+                padding: 1rem 2rem;
+                font-size: 1rem;
+            }
+
             .gallery-grid {
                 grid-template-columns: repeat(2, 1fr);
                 grid-template-rows: auto;
@@ -2016,6 +2380,55 @@
 
             .hero-floating-card {
                 display: none;
+            }
+
+            /* Hero Alternative Mobile */
+            .hero-alt h1 {
+                font-size: clamp(2rem, 5vw, 3rem);
+            }
+
+            .hero-alt p {
+                font-size: 1rem;
+                margin-bottom: 2rem;
+            }
+
+            .hero-alt .hero-buttons {
+                flex-direction: column;
+                width: 100%;
+                gap: 1rem;
+            }
+
+            .hero-alt .btn {
+                width: 100%;
+                justify-content: center;
+            }
+
+            .hero-alt .hero-scroll-indicator {
+                bottom: 2rem;
+            }
+
+            /* Video Section Mobile */
+            .video-hero-wrapper {
+                border-radius: 16px;
+            }
+
+            .video-hero-info {
+                padding: 2rem 1.5rem;
+                margin-top: 2rem;
+            }
+
+            .video-hero-info h3 {
+                font-size: 1.5rem;
+            }
+
+            .video-hero-info p {
+                font-size: 1rem;
+            }
+
+            .video-features {
+                flex-direction: column;
+                align-items: center;
+                gap: 1rem;
             }
 
             .form-row {
@@ -2069,42 +2482,78 @@
             .image-preview-grid {
                 grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
             }
+
+            /* Video Section Small Screens */
+            .video-hero-wrapper {
+                border-radius: 12px;
+            }
+
+            .video-hero-info {
+                padding: 1.5rem 1rem;
+                margin-top: 1.5rem;
+            }
+
+            .video-hero-info h3 {
+                font-size: 1.3rem;
+            }
+
+            .video-hero-info p {
+                font-size: 0.95rem;
+            }
         }
 
-        /* Before/After Section */
+        /* Before/After Section - Hero Style */
         .before-after {
             padding: var(--section-padding) 2rem;
             background: var(--cream);
+            position: relative;
+            overflow: hidden;
         }
 
-        .before-after-grid {
+        .before-after::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 120%;
+            height: 120%;
+            background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 800'%3E%3Cdefs%3E%3Cpattern id='dots-ba' x='0' y='0' width='40' height='40' patternUnits='userSpaceOnUse'%3E%3Ccircle cx='20' cy='20' r='2' fill='%238BC34A' opacity='0.15'/%3E%3C/pattern%3E%3C/defs%3E%3Crect width='1200' height='800' fill='url(%23dots-ba)'/%3E%3C/svg%3E") center/cover;
+            opacity: 0.6;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .before-after > * {
+            position: relative;
+            z-index: 1;
+        }
+
+        .ba-hero-container {
             max-width: 1400px;
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
-            gap: 3rem;
+            margin: 3rem auto 0;
+            position: relative;
         }
 
-        .ba-item {
-            background: white;
+        .ba-hero-wrapper {
+            position: relative;
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            height: 600px;
             border-radius: 24px;
             overflow: hidden;
-            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
-            transition: transform 0.4s ease, box-shadow 0.4s ease;
-        }
-
-        .ba-item:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.12);
+            box-shadow: 0 25px 70px rgba(0, 0, 0, 0.15);
+            background: var(--charcoal);
+            cursor: ew-resize;
+            user-select: none;
         }
 
         .ba-comparison {
             position: relative;
             width: 100%;
-            height: 400px;
+            height: 100%;
             overflow: hidden;
-            cursor: ew-resize;
-            user-select: none;
         }
 
         .ba-before, .ba-after {
@@ -2115,6 +2564,7 @@
             height: 100%;
             background-size: cover;
             background-position: center;
+            transition: all 0.3s ease;
         }
 
         .ba-before {
@@ -2144,11 +2594,11 @@
             top: 50%;
             left: 50%;
             transform: translate(-50%, -50%);
-            width: 50px;
-            height: 50px;
+            width: 60px;
+            height: 60px;
             background: white;
             border-radius: 50%;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.25);
         }
 
         .ba-slider::after {
@@ -2157,16 +2607,17 @@
             top: 50%;
             left: 50%;
             transform: translate(-50%, -50%);
-            font-size: 1.5rem;
+            font-size: 1.8rem;
             color: var(--forest-green);
+            font-weight: bold;
             z-index: 1;
         }
 
         .ba-labels {
             position: absolute;
-            top: 20px;
-            left: 20px;
-            right: 20px;
+            top: 30px;
+            left: 30px;
+            right: 30px;
             display: flex;
             justify-content: space-between;
             z-index: 4;
@@ -2174,51 +2625,208 @@
         }
 
         .ba-label {
-            background: rgba(0, 0, 0, 0.7);
+            background: rgba(0, 0, 0, 0.75);
             color: white;
-            padding: 0.5rem 1rem;
-            border-radius: 8px;
+            padding: 0.75rem 1.5rem;
+            border-radius: 30px;
             font-weight: 600;
-            font-size: 0.9rem;
+            font-size: 1rem;
             backdrop-filter: blur(10px);
+            text-transform: uppercase;
+            letter-spacing: 1px;
         }
 
-        .ba-info {
-            padding: 2rem;
+        .ba-hero-info {
+            max-width: 900px;
+            margin: 3rem auto 0;
+            text-align: center;
+            padding: 2.5rem;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
         }
 
-        .ba-info h3 {
+        .ba-hero-info h3 {
             font-family: var(--font-display);
-            font-size: 1.4rem;
+            font-size: 1.8rem;
             color: var(--forest-green);
-            margin-bottom: 0.75rem;
+            margin-bottom: 1rem;
         }
 
-        .ba-info p {
+        .ba-hero-info p {
             color: var(--earth-brown);
-            line-height: 1.6;
-            margin-bottom: 1rem;
+            font-size: 1.1rem;
+            line-height: 1.8;
+            margin-bottom: 2rem;
         }
 
         .ba-tags {
             display: flex;
-            gap: 0.5rem;
+            gap: 1rem;
+            justify-content: center;
             flex-wrap: wrap;
         }
 
         .ba-tag {
-            background: rgba(46, 90, 60, 0.1);
+            background: var(--sand-beige);
             color: var(--forest-green);
-            padding: 0.4rem 0.8rem;
+            padding: 0.5rem 1.25rem;
             border-radius: 20px;
-            font-size: 0.8rem;
-            font-weight: 500;
+            font-size: 0.9rem;
+            font-weight: 600;
+        }
+
+        .ba-navigation {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            align-items: center;
+            margin-top: 2rem;
+        }
+
+        .ba-nav-btn {
+            background: var(--kiwi-green);
+            color: white;
+            border: none;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 1.5rem;
+            box-shadow: 0 4px 15px rgba(139, 195, 74, 0.3);
+        }
+
+        .ba-nav-btn:hover:not(:disabled) {
+            background: var(--kiwi-dark);
+            transform: scale(1.1);
+            box-shadow: 0 6px 20px rgba(139, 195, 74, 0.4);
+        }
+
+        .ba-nav-btn:disabled {
+            opacity: 0.4;
+            cursor: not-allowed;
+        }
+
+        .ba-nav-dots {
+            display: flex;
+            gap: 0.5rem;
+        }
+
+        .ba-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: var(--sand-beige);
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .ba-dot.active {
+            background: var(--kiwi-green);
+            width: 30px;
+            border-radius: 10px;
         }
 
         /* YouTube Section */
         .youtube-section {
             padding: var(--section-padding) 2rem;
+            background: var(--cream);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .youtube-section::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 120%;
+            height: 120%;
+            background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 800'%3E%3Cdefs%3E%3Cpattern id='dots' x='0' y='0' width='40' height='40' patternUnits='userSpaceOnUse'%3E%3Ccircle cx='20' cy='20' r='2' fill='%238BC34A' opacity='0.15'/%3E%3C/pattern%3E%3C/defs%3E%3Crect width='1200' height='800' fill='url(%23dots)'/%3E%3C/svg%3E") center/cover;
+            opacity: 0.6;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .youtube-section > * {
+            position: relative;
+            z-index: 1;
+        }
+
+        .video-hero-container {
+            max-width: 1400px;
+            margin: 3rem auto 0;
+            position: relative;
+        }
+
+        .video-hero-wrapper {
+            position: relative;
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding-bottom: 56.25%;
+            border-radius: 24px;
+            overflow: hidden;
+            box-shadow: 0 25px 70px rgba(0, 0, 0, 0.15);
+            background: var(--charcoal);
+        }
+
+        .video-hero-wrapper iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        .video-hero-info {
+            max-width: 900px;
+            margin: 3rem auto 0;
+            text-align: center;
+            padding: 2.5rem;
             background: white;
+            border-radius: 20px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
+        }
+
+        .video-hero-info h3 {
+            font-family: var(--font-display);
+            font-size: 1.8rem;
+            color: var(--forest-green);
+            margin-bottom: 1rem;
+        }
+
+        .video-hero-info p {
+            color: var(--earth-brown);
+            font-size: 1.1rem;
+            line-height: 1.8;
+            margin-bottom: 2rem;
+        }
+
+        .video-features {
+            display: flex;
+            gap: 2rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .video-feature {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--forest-green);
+            font-weight: 600;
+            font-size: 0.95rem;
+        }
+
+        .video-feature svg {
+            color: var(--kiwi-accent);
         }
 
         .videos-grid {
@@ -2540,6 +3148,184 @@
             color: var(--earth-brown);
             font-size: 0.9rem;
             margin-top: 0.5rem;
+        }
+
+        /* Karriere Section */
+        .karriere {
+            padding: var(--section-padding) 2rem;
+            background: transparent;
+        }
+
+        .karriere-container {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .job-card {
+            background: transparent;
+            border-radius: 8px;
+            border-bottom: 2px solid #e5e7eb;
+            padding: 2rem 0;
+            transition: all 0.3s ease;
+        }
+
+        .job-card:first-child {
+            padding-top: 0;
+        }
+
+        .job-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            gap: 2rem;
+            cursor: pointer;
+        }
+
+        .job-title-section {
+            flex: 1;
+        }
+
+        .job-title-section h3 {
+            font-family: var(--font-display);
+            font-size: 1.8rem;
+            color: var(--forest-green);
+            margin-bottom: 1rem;
+            line-height: 1.3;
+        }
+
+        .job-meta {
+            display: flex;
+            gap: 0.75rem;
+            flex-wrap: wrap;
+        }
+
+        .job-badge {
+            display: inline-flex;
+            align-items: center;
+            padding: 0.4rem 0.9rem;
+            border-radius: 9999px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            background: #000;
+            color: #fff;
+        }
+
+        .job-badge.featured {
+            background: var(--kiwi-green);
+            color: white;
+        }
+
+        .job-toggle-btn {
+            flex-shrink: 0;
+            background: transparent;
+            border: none;
+            padding: 1rem;
+            cursor: pointer;
+            border-radius: 50%;
+            width: 60px;
+            height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+        }
+
+        .job-toggle-btn:hover {
+            background: transparent;
+            transform: scale(1.05);
+        }
+
+        .job-toggle-btn svg {
+            width: 32px;
+            height: 32px;
+            transition: transform 0.3s ease;
+            color: var(--forest-green);
+        }
+
+        .job-toggle-btn.active svg {
+            transform: rotate(45deg);
+        }
+
+        .job-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.5s ease-out, opacity 0.3s ease-out;
+            opacity: 0;
+        }
+
+        .job-content.active {
+            max-height: 3000px;
+            opacity: 1;
+            margin-top: 2rem;
+        }
+
+        .job-section {
+            margin-bottom: 2.5rem;
+        }
+
+        .job-section:last-child {
+            margin-bottom: 0;
+        }
+
+        .job-section h4 {
+            font-size: 1.4rem;
+            color: var(--forest-green);
+            margin-bottom: 1rem;
+            font-weight: 600;
+        }
+
+        .job-section ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .job-section li {
+            padding-left: 0;
+            position: relative;
+            margin-bottom: 0.75rem;
+            color: var(--earth-brown);
+            line-height: 1.8;
+            font-size: 1rem;
+            list-style: disc;
+            margin-left: 1.5rem;
+        }
+
+        .job-apply {
+            display: flex;
+            gap: 1rem;
+            align-items: center;
+            flex-wrap: wrap;
+            padding-top: 1.5rem;
+            border-top: 1px solid #e5e7eb;
+        }
+
+        .job-apply-info {
+            color: var(--earth-brown);
+            font-size: 0.95rem;
+        }
+
+        .job-apply-info a {
+            color: var(--kiwi-green);
+            text-decoration: none;
+            font-weight: 600;
+            transition: color 0.3s ease;
+        }
+
+        .job-apply-info a:hover {
+            color: var(--kiwi-dark);
+        }
+
+        body.dark-mode .job-card {
+            background: #1e1e1e;
+            border-bottom-color: #3d3d3d;
+        }
+
+        body.dark-mode .job-toggle-btn {
+            background: #2d2d2d;
+        }
+
+        body.dark-mode .job-toggle-btn:hover {
+            background: #3d3d3d;
         }
 
         /* Process Section */
@@ -3667,6 +4453,511 @@
                 font-size: 1.2rem;
             }
         }
+
+        /* Contact Modal */
+        .contact-modal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            z-index: 9999;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            padding: 1rem;
+        }
+
+        .contact-modal.active {
+            display: flex;
+        }
+
+        .contact-modal-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.7);
+            backdrop-filter: blur(5px);
+            animation: fadeIn 0.3s ease;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        .contact-modal-content {
+            position: relative;
+            z-index: 10;
+            background: white;
+            border-radius: 24px;
+            max-width: 800px;
+            width: 100%;
+            max-height: 90vh;
+            overflow-y: auto;
+            box-shadow: 0 25px 70px rgba(0, 0, 0, 0.3);
+            animation: modalSlideUp 0.4s ease;
+        }
+
+        @keyframes modalSlideUp {
+            from {
+                opacity: 0;
+                transform: translateY(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .contact-modal-close {
+            position: absolute;
+            top: 1.5rem;
+            right: 1.5rem;
+            width: 40px;
+            height: 40px;
+            border: none;
+            background: var(--sand-beige);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            color: var(--charcoal);
+            z-index: 10;
+        }
+
+        .contact-modal-close:hover {
+            background: var(--kiwi-green);
+            color: white;
+            transform: rotate(90deg);
+        }
+
+        .contact-modal-header {
+            text-align: center;
+            padding: 3rem 2rem 2rem;
+            background: var(--gradient-nature);
+            color: white;
+            border-radius: 24px 24px 0 0;
+        }
+
+        .contact-modal-header h2 {
+            font-family: var(--font-display);
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .contact-modal-header p {
+            font-size: 1.1rem;
+            opacity: 0.95;
+        }
+
+        .contact-modal-body {
+            padding: 2.5rem;
+        }
+
+        .contact-modal-info {
+            margin-top: 2rem;
+            padding-top: 2rem;
+            border-top: 1px solid var(--sand-beige);
+        }
+
+        .contact-modal-info h3 {
+            font-family: var(--font-display);
+            font-size: 1.3rem;
+            color: var(--forest-green);
+            margin-bottom: 1.5rem;
+            text-align: center;
+        }
+
+        .contact-quick-links {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .contact-quick-link {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            padding: 1rem 1.5rem;
+            background: var(--cream);
+            border-radius: 12px;
+            text-decoration: none;
+            color: var(--charcoal);
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+        }
+
+        .contact-quick-link:hover {
+            background: var(--kiwi-light);
+            border-color: var(--kiwi-green);
+            transform: translateX(5px);
+        }
+
+        .contact-quick-link svg {
+            color: var(--kiwi-green);
+            flex-shrink: 0;
+        }
+
+        .contact-quick-link span {
+            font-weight: 600;
+        }
+
+        /* Floating Contact Button */
+        .floating-contact-btn {
+            position: fixed;
+            bottom: 2rem;
+            left: 2rem;
+            width: 60px;
+            height: 60px;
+            background: var(--charcoal);
+            border: none;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            box-shadow: 0 8px 30px rgba(45, 45, 45, 0.4);
+            transition: all 0.3s ease;
+            z-index: 1000;
+            color: white;
+        }
+
+        .floating-contact-btn:hover {
+            transform: scale(1.1);
+            background: var(--kiwi-dark);
+            box-shadow: 0 12px 40px rgba(104, 159, 56, 0.6);
+        }
+
+        /* Responsive Contact Modal */
+        @media (max-width: 768px) {
+            .contact-modal {
+                padding: 0;
+            }
+
+            .contact-modal-content {
+                max-height: 100vh;
+                border-radius: 0;
+                height: 100%;
+            }
+
+            .contact-modal-header {
+                padding: 2.5rem 1.5rem 1.5rem;
+                border-radius: 0;
+            }
+
+            .contact-modal-header h2 {
+                font-size: 1.6rem;
+            }
+
+            .contact-modal-header p {
+                font-size: 1rem;
+            }
+
+            .contact-modal-body {
+                padding: 1.5rem;
+            }
+
+            .contact-modal-close {
+                top: 1rem;
+                right: 1rem;
+            }
+
+            .floating-contact-btn {
+                bottom: 1.5rem;
+                left: 1.5rem;
+                width: 56px;
+                height: 56px;
+            }
+        }
+
+        /* FAQ / Accordion Section */
+        .faq-section {
+            padding: var(--section-padding) 2rem;
+            background: white;
+            position: relative;
+        }
+
+        .faq-section .section-label {
+            color: var(--kiwi-green);
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            display: inline-block;
+        }
+
+        .faq-section h2 {
+            font-family: var(--font-display);
+            font-size: clamp(2rem, 4vw, 3rem);
+            color: var(--forest-green);
+            margin-bottom: 3rem;
+            font-weight: 100;
+        }
+
+        .accordion-container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .accordion-item {
+            border-bottom: 1px solid var(--kiwi-green);
+            padding: 1.5rem 0;
+        }
+
+        .accordion-item:first-child {
+            padding-top: 0;
+        }
+
+        .accordion-question {
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            background: none;
+            border: none;
+            cursor: pointer;
+            text-align: left;
+            padding: 0;
+            gap: 1.5rem;
+            transition: color 0.3s ease;
+        }
+
+        .accordion-question:hover {
+            color: var(--kiwi-dark);
+        }
+
+        .accordion-question-text {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: var(--charcoal);
+            line-height: 1.5;
+            flex: 1;
+        }
+
+        .accordion-icon {
+            width: 36px;
+            height: 36px;
+            flex-shrink: 0;
+            position: relative;
+            transition: transform 0.3s ease;
+        }
+
+        .accordion-icon svg {
+            width: 100%;
+            height: 100%;
+            transition: transform 0.3s ease;
+        }
+
+        .accordion-item.active .accordion-icon {
+            transform: rotate(45deg);
+        }
+
+        .accordion-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.4s ease, padding-top 0.4s ease;
+            padding-top: 0;
+        }
+
+        .accordion-item.active .accordion-answer {
+            max-height: 500px;
+            padding-top: 1.5rem;
+        }
+
+        .accordion-answer-content {
+            font-size: 1.05rem;
+            line-height: 1.8;
+            color: var(--earth-brown);
+            padding-right: 3rem;
+        }
+
+        /* New Footer Styles */
+        .footer-new {
+            background: var(--kiwi-dark);
+            color: white;
+            padding: 2.5rem 2rem 1.5rem;
+        }
+
+        .footer-container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .footer-logo-section {
+            margin-bottom: 2rem;
+        }
+
+        .footer-logo-section img {
+            height: 50px;
+            width: auto;
+            filter: brightness(0) invert(1);
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: 1fr auto;
+            gap: 3rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-contact {
+            display: flex;
+            flex-direction: column;
+            gap: 1.2rem;
+        }
+
+        .footer-contact-item {
+            font-size: 1rem;
+            line-height: 1.5;
+        }
+
+        .footer-contact-item a {
+            color: white;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer-contact-item a:hover {
+            color: var(--kiwi-light);
+        }
+
+        .footer-social {
+            display: flex;
+            gap: 1rem;
+            margin-top: 0.5rem;
+        }
+
+        .footer-social a {
+            width: 36px;
+            height: 36px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            transition: all 0.3s ease;
+        }
+
+        .footer-social a:hover {
+            transform: scale(1.2) translateY(-3px);
+            color: var(--kiwi-light);
+        }
+
+        .footer-social svg {
+            width: 22px;
+            height: 22px;
+        }
+
+        .footer-nav {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+            align-items: flex-end;
+        }
+
+        .footer-nav a {
+            color: white;
+            text-decoration: none;
+            font-size: 0.95rem;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            display: inline-block;
+        }
+
+        .footer-nav a:hover {
+            color: var(--kiwi-light);
+            transform: translateX(-5px);
+        }
+
+        .footer-copyright {
+            padding-top: 1.5rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.3);
+            text-align: left;
+            font-size: 0.85rem;
+            opacity: 0.9;
+        }
+
+        /* Back to Top Button */
+        .back-to-top {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            width: 60px;
+            height: 60px;
+            background: var(--charcoal);
+            border: none;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            box-shadow: 0 8px 30px rgba(45, 45, 45, 0.4);
+            transition: all 0.3s ease;
+            z-index: 1001;
+            color: white;
+        }
+
+        .back-to-top:hover {
+            background: var(--kiwi-dark);
+            transform: scale(1.1);
+            box-shadow: 0 12px 40px rgba(104, 159, 56, 0.6);
+        }
+
+        .back-to-top svg {
+            width: 24px;
+            height: 24px;
+            transition: transform 0.3s ease;
+        }
+
+        .back-to-top:hover svg {
+            transform: translateY(-3px);
+        }
+
+        /* Responsive Footer */
+        @media (max-width: 768px) {
+            .footer-new {
+                padding: 2rem 1.5rem 1.5rem;
+            }
+
+            .footer-content {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .footer-logo-section {
+                margin-bottom: 1.5rem;
+            }
+
+            .footer-logo-section img {
+                height: 44px;
+            }
+
+            .footer-nav {
+                align-items: flex-start;
+            }
+
+            .footer-nav a:hover {
+                transform: translateX(5px);
+            }
+
+            .accordion-answer-content {
+                padding-right: 0;
+            }
+
+            .accordion-question-text {
+                font-size: 1.05rem;
+            }
+
+            .accordion-icon {
+                width: 32px;
+                height: 32px;
+            }
+        }
     </style>
 </head>
 <body>
@@ -3683,22 +4974,27 @@
                 </div>
                 <div class="logo-text">
                     <strong>Toni Janis</strong>
-                    <span>Garten- und Landschaftsbau</span>
                 </div>
             </a>
 
             <div class="nav-container">
                 <ul class="nav-links">
-                    <li><a href="#home">Startseite</a></li>
                     <li><a href="#services">Leistungen</a></li>
                     <li><a href="#about">Über uns</a></li>
                     <li><a href="#projekte">Projekte</a></li>
                     <li><a href="#gallery">Galerie</a></li>
-                    <li><a href="#contact">Kontakt</a></li>
+                    <li><a href="#karriere">Karriere</a></li>
                 </ul>
             </div>
 
             <div class="nav-actions">
+                <a href="#contact" class="btn-cta-small">
+                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                        <path d="M14 2H2C1.44772 2 1 2.44772 1 3V13C1 13.5523 1.44772 14 2 14H14C14.5523 14 15 13.5523 15 13V3C15 2.44772 14.5523 2 14 2Z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M3 5L8 9L13 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                    <span>Angebote</span>
+                </a>
                 <a href="#termin" class="btn-cta">
                     <svg width="18" height="18" viewBox="0 0 18 18" fill="none">
                         <rect x="2" y="3" width="14" height="13" rx="2" stroke="currentColor" stroke-width="1.5"/>
@@ -3726,12 +5022,12 @@
         <!-- Mobile Menu -->
         <div class="mobile-menu">
             <ul>
-                <li><a href="#home" onclick="toggleMobileMenu()">Startseite</a></li>
                 <li><a href="#services" onclick="toggleMobileMenu()">Leistungen</a></li>
                 <li><a href="#about" onclick="toggleMobileMenu()">Über uns</a></li>
                 <li><a href="#projekte" onclick="toggleMobileMenu()">Projekte</a></li>
                 <li><a href="#gallery" onclick="toggleMobileMenu()">Galerie</a></li>
-                <li><a href="#contact" onclick="toggleMobileMenu()">Kontakt</a></li>
+                <li><a href="#karriere" onclick="toggleMobileMenu()">Karriere</a></li>
+                <li><a href="#contact" onclick="toggleMobileMenu()" class="mobile-cta">Angebote Anfragen</a></li>
                 <li><a href="#termin" onclick="toggleMobileMenu()" class="mobile-cta">Termin buchen</a></li>
             </ul>
         </div>
@@ -3742,8 +5038,14 @@
         <div class="hero-container">
             <div class="hero-content">
                 <div class="hero-badge">Ihr Gartenspezialist in Delmenhorst</div>
-                <h1>Wir verwandeln Ihren Garten in eine <span>grüne Oase</span></h1>
-                <p>Professioneller Garten- und Landschaftsbau mit Leidenschaft. Von der Planung bis zur Pflege – wir schaffen Ihren Traumgarten.</p>
+                <h1>
+                    Professioneller Garten- und Landschaftsbau
+                    <span>Ihr Traumgarten wird Wirklichkeit</span>
+                </h1>
+                <p>
+                    Mit uber 10 Jahren Erfahrung verwandeln wir Ihren Außenbereich in eine grune Oase.
+                    Von der Planung bis zur Pflege - wir sind Ihr zuverlassiger Partner in Delmenhorst und Umgebung.
+                </p>
                 <div class="hero-buttons">
                     <a href="#contact" class="btn btn-primary">
                         Kostenlose Beratung
@@ -3756,36 +5058,58 @@
             </div>
             <div class="hero-image">
                 <div class="hero-image-main">
-                    <img src="https://images.unsplash.com/photo-1592419044706-39796d40f98c?q=80&w=800&auto=format&fit=crop"
+                    <img src="https://images.unsplash.com/photo-1621905252507-b35492cc74b4?q=80&w=800&auto=format&fit=crop"
                          alt="Professioneller Gärtner bei der Arbeit"
                          loading="eager">
-                </div>
-                <div class="hero-floating-card card-1">
-                    <div class="floating-stat">
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-                            <path d="M20 6L9 17L4 12" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
-                        </svg>
-                        <div class="floating-stat-text">
-                            <strong>100%</strong>
-                            <span>Zufriedenheit</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="hero-floating-card card-2">
-                    <div class="floating-stat">
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-                            <path d="M12 2C12 2 8 6 8 12C8 16 10 18 12 18C14 18 16 16 16 12C16 6 12 2 12 2Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                            <path d="M12 18V22M8 20H16" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-                        </svg>
-                        <div class="floating-stat-text">
-                            <strong>500+</strong>
-                            <span>Projekte</span>
-                        </div>
-                    </div>
                 </div>
             </div>
         </div>
     </section>
+
+    <!-- ============================================ -->
+    <!-- HERO ALTERNATIVE - VERSION FULLSCREEN -->
+    <!-- ============================================ -->
+    <!-- Version 2: Fullscreen avec image en fond -->
+    <!-- ============================================ -->
+
+    <section class="hero-alt" id="home-alt">
+        <div class="hero-container">
+            <div class="hero-content">
+                <div class="hero-badge">Ihr Gartenspezialist in Delmenhorst</div>
+                <h1>
+                    Professioneller Garten- und Landschaftsbau
+                    <span>Ihr Traumgarten wird Wirklichkeit</span>
+                </h1>
+                <p>
+                    Mit uber 10 Jahren Erfahrung verwandeln wir Ihren Außenbereich in eine grune Oase.
+                    Von der Planung bis zur Pflege - wir sind Ihr zuverlassiger Partner in Delmenhorst und Umgebung.
+                </p>
+                <div class="hero-buttons">
+                    <a href="#contact" class="btn btn-primary">
+                        Kostenlose Beratung
+                        <span>→</span>
+                    </a>
+                    <a href="#services" class="btn btn-secondary">
+                        Unsere Leistungen
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="hero-scroll-indicator" onclick="document.querySelector('#services').scrollIntoView({behavior: 'smooth'})">
+            <span>Scrollen</span>
+            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M12 5V19M12 19L19 12M12 19L5 12" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+        </div>
+    </section>
+
+    <!-- Hero Version Toggle Button -->
+    <button class="hero-version-toggle" id="heroToggle" aria-label="Wechseln zwischen Hero-Versionen">
+        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M4 7h16M4 12h16M4 17h16" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+        </svg>
+        <span id="heroVersionText">Version 2</span>
+    </button>
 
     <!-- Services Section -->
     <section class="services" id="services">
@@ -4723,69 +6047,36 @@
             <h2>Beeindruckende Verwandlungen</h2>
             <p>Sehen Sie selbst, wie wir Garten in echte Wohlfuhloasen verwandeln.</p>
         </div>
-        <div class="before-after-grid">
-            <!-- Before/After Item 1 -->
-            <div class="ba-item">
-                <div class="ba-comparison" data-index="0">
-                    <div class="ba-before" style="background: linear-gradient(135deg, #8B7355 0%, #A0826D 100%);"></div>
-                    <div class="ba-after" style="background: linear-gradient(135deg, #4A7C59 0%, #7CB342 100%);"></div>
-                    <div class="ba-slider"></div>
+
+        <div class="ba-hero-container">
+            <!-- Grande comparaison Before/After -->
+            <div class="ba-hero-wrapper">
+                <div class="ba-comparison" id="baMainComparison">
+                    <div class="ba-before" id="baBeforeImage"></div>
+                    <div class="ba-after" id="baAfterImage"></div>
+                    <div class="ba-slider" id="baSlider"></div>
                     <div class="ba-labels">
                         <span class="ba-label">Vorher</span>
                         <span class="ba-label">Nachher</span>
-                    </div>
-                </div>
-                <div class="ba-info">
-                    <h3>Komplette Gartenumgestaltung</h3>
-                    <p>Verwandlung eines verwilderten Gartens in eine moderne Wohlfuhloase mit Terrasse, Rasenflache und mediterraner Bepflanzung.</p>
-                    <div class="ba-tags">
-                        <span class="ba-tag">Gartengestaltung</span>
-                        <span class="ba-tag">Rollrasen</span>
-                        <span class="ba-tag">Pflasterung</span>
                     </div>
                 </div>
             </div>
 
-            <!-- Before/After Item 2 -->
-            <div class="ba-item">
-                <div class="ba-comparison" data-index="1">
-                    <div class="ba-before" style="background: linear-gradient(135deg, #696969 0%, #808080 100%);"></div>
-                    <div class="ba-after" style="background: linear-gradient(135deg, #2E5A3C 0%, #4A7C59 100%);"></div>
-                    <div class="ba-slider"></div>
-                    <div class="ba-labels">
-                        <span class="ba-label">Vorher</span>
-                        <span class="ba-label">Nachher</span>
-                    </div>
+            <!-- Info du projet actuel -->
+            <div class="ba-hero-info" id="baHeroInfo">
+                <h3 id="baProjectTitle">Komplette Gartenumgestaltung</h3>
+                <p id="baProjectDescription">Verwandlung eines verwilderten Gartens in eine moderne Wohlfuhloase mit Terrasse, Rasenflache und mediterraner Bepflanzung.</p>
+                <div class="ba-tags" id="baProjectTags">
+                    <span class="ba-tag">Gartengestaltung</span>
+                    <span class="ba-tag">Rollrasen</span>
+                    <span class="ba-tag">Pflasterung</span>
                 </div>
-                <div class="ba-info">
-                    <h3>Terrassen-Neuanlage</h3>
-                    <p>Aus einem alten Betonplatz wurde eine elegante Naturstein-Terrasse mit integrierter Beleuchtung und Hochbeeten.</p>
-                    <div class="ba-tags">
-                        <span class="ba-tag">Pflasterarbeiten</span>
-                        <span class="ba-tag">Beleuchtung</span>
-                    </div>
-                </div>
-            </div>
 
-            <!-- Before/After Item 3 -->
-            <div class="ba-item">
-                <div class="ba-comparison" data-index="2">
-                    <div class="ba-before" style="background: linear-gradient(135deg, #654321 0%, #8B6914 100%);"></div>
-                    <div class="ba-after" style="background: linear-gradient(135deg, #228B22 0%, #32CD32 100%);"></div>
-                    <div class="ba-slider"></div>
-                    <div class="ba-labels">
-                        <span class="ba-label">Vorher</span>
-                        <span class="ba-label">Nachher</span>
-                    </div>
-                </div>
-                <div class="ba-info">
-                    <h3>Vorgarten-Modernisierung</h3>
-                    <p>Neugestaltung eines Vorgartens mit pflegeleichter Bepflanzung, Zierkies und modernem Wegesystem.</p>
-                    <div class="ba-tags">
-                        <span class="ba-tag">Vorgarten</span>
-                        <span class="ba-tag">Pflegeleicht</span>
-                        <span class="ba-tag">Modern</span>
-                    </div>
+                <!-- Navigation entre les projets -->
+                <div class="ba-navigation">
+                    <button class="ba-nav-btn" id="baPrev" aria-label="Vorheriges Projekt">←</button>
+                    <div class="ba-nav-dots" id="baDots"></div>
+                    <button class="ba-nav-btn" id="baNext" aria-label="Nächstes Projekt">→</button>
                 </div>
             </div>
         </div>
@@ -5339,6 +6630,80 @@
         </div>
     </section>
 
+    <!-- Karriere Section -->
+    <section class="karriere" id="karriere">
+        <div class="karriere-container">
+            <div class="section-header">
+                <span class="section-label">Karriere</span>
+                <h2>Werde Teil unseres Teams</h2>
+                <p>Wir suchen motivierte Mitarbeiter, die mit Leidenschaft Gärten gestalten und pflegen möchten.</p>
+            </div>
+
+            <!-- Job Offer 1 -->
+            <div class="job-card">
+                <div class="job-header" onclick="toggleJobCard(this)">
+                    <div class="job-title-section">
+                        <h3>Gärtner / Landschaftsgärtner (m/w/d)</h3>
+                        <div class="job-meta">
+                            <span class="job-badge featured">Vollzeit</span>
+                            <span class="job-badge">Ab sofort</span>
+                        </div>
+                    </div>
+                    <button class="job-toggle-btn" aria-label="Details anzeigen" type="button">
+                        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M12 5V19M5 12H19" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </button>
+                </div>
+
+                <div class="job-content">
+                    <div class="job-section">
+                        <h4>Deine Aufgaben:</h4>
+                        <ul>
+                            <li>Gartengestaltung und Neuanlagen</li>
+                            <li>Pflasterarbeiten und Wegebau</li>
+                            <li>Rollrasen verlegen</li>
+                            <li>Gartenpflege und Instandhaltung</li>
+                            <li>Kundenberatung vor Ort</li>
+                        </ul>
+                    </div>
+
+                    <div class="job-section">
+                        <h4>Das bringst du mit:</h4>
+                        <ul>
+                            <li>Abgeschlossene Ausbildung als Gärtner oder Landschaftsgärtner</li>
+                            <li>Berufserfahrung wünschenswert</li>
+                            <li>Führerschein Klasse B</li>
+                            <li>Teamfähigkeit und Zuverlässigkeit</li>
+                            <li>Freude am Arbeiten im Freien</li>
+                        </ul>
+                    </div>
+
+                    <div class="job-section">
+                        <h4>Wir bieten:</h4>
+                        <ul>
+                            <li>Unbefristete Festanstellung</li>
+                            <li>Leistungsgerechte Bezahlung</li>
+                            <li>Modernes Arbeitsgerät</li>
+                            <li>Freundliches Arbeitsklima</li>
+                            <li>Vielseitige Projekte</li>
+                        </ul>
+                    </div>
+
+                    <div class="job-apply">
+                        <a href="mailto:toni-janis@hotmail.com?subject=Bewerbung als Gärtner / Landschaftsgärtner" class="btn btn-primary">
+                            Jetzt bewerben
+                            <span>→</span>
+                        </a>
+                        <p class="job-apply-info">
+                            Oder per E-Mail an: <a href="mailto:toni-janis@hotmail.com">toni-janis@hotmail.com</a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- Contact Section -->
     <!-- Contact Modal -->
     <div class="contact-modal" id="contactModal">
@@ -5534,99 +6899,182 @@
         </div>
     </section>
 
-    <!-- Footer -->
-    <footer>
-        <div class="footer-container">
-            <div class="footer-main">
-                <div class="footer-brand">
-                    <a href="#" class="logo">
-                        <div class="logo-icon">
-                            <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <path d="M20 5L25 15H30L35 25L30 35H10L5 25L10 15H15L20 5Z" fill="#689F38"/>
-                                <circle cx="20" cy="20" r="8" fill="#8BC34A"/>
-                                <path d="M20 12V28M15 20H25" stroke="white" stroke-width="2" stroke-linecap="round"/>
-                            </svg>
-                        </div>
-                        <div class="logo-text">
-                            <strong>Toni Janis</strong>
-                            <span>Garten- und Landschaftsbau</span>
-                        </div>
-                    </a>
+    <!-- FAQ / Accordion Section -->
+    <section class="faq-section" id="faq">
+        <div class="section-header" style="text-align: center;">
+            <span class="section-label">HAUFIG GESTELLTE FRAGEN</span>
+            <h2>Ihre Fragen, unsere Antworten</h2>
+        </div>
 
-                    <div class="footer-contact-info">
-                        <p style="margin: 1rem 0 0.5rem 0; color: rgba(255,255,255,0.7); font-size: 0.9rem;">
-                            Düsternort Str. 104, 27755 Delmenhorst
-                        </p>
-                        <p style="margin: 0.5rem 0; font-size: 0.95rem;">
-                            <a href="tel:+4917634326549" style="color: white;">0176 343 26549</a> •
-                            <a href="tel:+4917687829995" style="color: white;">0176 878 29995</a>
-                        </p>
-                        <p style="margin: 0.5rem 0; font-size: 0.95rem;">
-                            <a href="mailto:toni-janis@hotmail.com" style="color: white;">toni-janis@hotmail.com</a>
-                        </p>
+        <div class="accordion-container">
+            <div class="accordion-item">
+                <button class="accordion-question" onclick="toggleAccordion(this)">
+                    <span class="accordion-question-text">Was kostet eine professionelle Gartengestaltung?</span>
+                    <div class="accordion-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <line x1="12" y1="5" x2="12" y2="19"></line>
+                            <line x1="5" y1="12" x2="19" y2="12"></line>
+                        </svg>
                     </div>
-
-                    <div class="footer-social">
-                        <a href="https://www.facebook.com" target="_blank" rel="noopener" title="Facebook">
-                            <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
-                                <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
-                            </svg>
-                        </a>
-                        <a href="https://www.instagram.com" target="_blank" rel="noopener" title="Instagram">
-                            <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
-                                <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
-                            </svg>
-                        </a>
-                        <a href="https://www.linkedin.com" target="_blank" rel="noopener" title="LinkedIn">
-                            <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
-                                <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
-                            </svg>
-                        </a>
+                </button>
+                <div class="accordion-answer">
+                    <div class="accordion-answer-content">
+                        Die Kosten für eine Gartengestaltung hängen von vielen Faktoren ab, wie Größe des Gartens, gewünschte Elemente und Materialien. Wir bieten eine kostenlose Erstberatung an, bei der wir Ihre Wünsche besprechen und ein individuelles Angebot erstellen. Ein kleiner Garten kann ab 5.000 Euro gestaltet werden, größere Projekte variieren entsprechend.
                     </div>
-                </div>
-                <div class="footer-column">
-                    <h4>Unsere Leistungen</h4>
-                    <ul>
-                        <li><a href="#services">Gartengestaltung</a></li>
-                        <li><a href="#services">Gartenpflege</a></li>
-                        <li><a href="#services">Pflasterarbeiten</a></li>
-                        <li><a href="#services">Rollrasen verlegen</a></li>
-                        <li><a href="#services">Zaunbau</a></li>
-                        <li><a href="#services">Winterdienst</a></li>
-                    </ul>
-                </div>
-                <div class="footer-column">
-                    <h4>Schnellzugriff</h4>
-                    <ul>
-                        <li><a href="#home">Startseite</a></li>
-                        <li><a href="#about">Uber uns</a></li>
-                        <li><a href="#projects">Projekte</a></li>
-                        <li><a href="#testimonials">Bewertungen</a></li>
-                        <li><a href="#blog">Gartentipps</a></li>
-                        <li><a href="#contact">Kontakt</a></li>
-                    </ul>
-                </div>
-                <div class="footer-column">
-                    <h4>Rechtliches</h4>
-                    <ul>
-                        <li><a href="#">Impressum</a></li>
-                        <li><a href="#">Datenschutz</a></li>
-                        <li><a href="#">AGB</a></li>
-                        <li><a href="#">Widerrufsrecht</a></li>
-                    </ul>
                 </div>
             </div>
 
-            <div class="footer-bottom">
-                <div>
-                    <a href="#contact" class="footer-btn">Angebot anfordern</a>
+            <div class="accordion-item">
+                <button class="accordion-question" onclick="toggleAccordion(this)">
+                    <span class="accordion-question-text">Wie oft sollte der Rasen gemäht werden?</span>
+                    <div class="accordion-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <line x1="12" y1="5" x2="12" y2="19"></line>
+                            <line x1="5" y1="12" x2="19" y2="12"></line>
+                        </svg>
+                    </div>
+                </button>
+                <div class="accordion-answer">
+                    <div class="accordion-answer-content">
+                        In der Hauptwachstumszeit (April bis Oktober) empfehlen wir eine wöchentliche Mahd. Im Frühjahr und Herbst reicht oft ein Rhythmus von 10-14 Tagen. Wichtig ist, nicht mehr als ein Drittel der Halmlänge auf einmal zu kürzen. Wir bieten auch Gartenpflege-Abos an, bei denen wir regelmäßig für Sie da sind.
+                    </div>
                 </div>
+            </div>
+
+            <div class="accordion-item">
+                <button class="accordion-question" onclick="toggleAccordion(this)">
+                    <span class="accordion-question-text">Verlegen Sie auch Rollrasen?</span>
+                    <div class="accordion-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <line x1="12" y1="5" x2="12" y2="19"></line>
+                            <line x1="5" y1="12" x2="19" y2="12"></line>
+                        </svg>
+                    </div>
+                </button>
+                <div class="accordion-answer">
+                    <div class="accordion-answer-content">
+                        Ja, wir sind Spezialisten für Rollrasen-Verlegung! Von der Bodenvorbereitung über die Lieferung bis zur fachgerechten Verlegung und ersten Pflege übernehmen wir alles. Bereits nach 2-3 Wochen ist Ihr neuer Rasen voll belastbar. Wir verwenden nur qualitativ hochwertige Rollrasen-Sorten.
+                    </div>
+                </div>
+            </div>
+
+            <div class="accordion-item">
+                <button class="accordion-question" onclick="toggleAccordion(this)">
+                    <span class="accordion-question-text">Bieten Sie auch Winterdienst an?</span>
+                    <div class="accordion-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <line x1="12" y1="5" x2="12" y2="19"></line>
+                            <line x1="5" y1="12" x2="19" y2="12"></line>
+                        </svg>
+                    </div>
+                </button>
+                <div class="accordion-answer">
+                    <div class="accordion-answer-content">
+                        Selbstverständlich! Unser Winterdienst umfasst Schneeräumung, Streuarbeiten und die Sicherstellung der Verkehrssicherheit auf Ihren Flächen. Wir bieten sowohl Privatpersonen als auch Gewerbetreibenden zuverlässigen Service – auch außerhalb der regulären Arbeitszeiten.
+                    </div>
+                </div>
+            </div>
+
+            <div class="accordion-item">
+                <button class="accordion-question" onclick="toggleAccordion(this)">
+                    <span class="accordion-question-text">Wie lange dauert ein Gartenprojekt?</span>
+                    <div class="accordion-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <line x1="12" y1="5" x2="12" y2="19"></line>
+                            <line x1="5" y1="12" x2="19" y2="12"></line>
+                        </svg>
+                    </div>
+                </button>
+                <div class="accordion-answer">
+                    <div class="accordion-answer-content">
+                        Die Dauer hängt vom Umfang des Projekts ab. Eine einfache Rollrasen-Verlegung kann in 1-2 Tagen erledigt sein, während eine komplette Gartenumgestaltung mehrere Wochen in Anspruch nehmen kann. Bei der Planung besprechen wir einen realistischen Zeitrahmen und halten Sie während der Arbeiten auf dem Laufenden.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer-new">
+        <div class="footer-container">
+            <!-- Logo Section -->
+            <div class="footer-logo-section">
+                <a href="#" style="display: flex; align-items: center; gap: 1rem; text-decoration: none;">
+                    <svg width="60" height="60" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M20 5L25 15H30L35 25L30 35H10L5 25L10 15H15L20 5Z" fill="white"/>
+                        <circle cx="20" cy="20" r="8" fill="var(--kiwi-green)"/>
+                        <path d="M20 12V28M15 20H25" stroke="white" stroke-width="2" stroke-linecap="round"/>
+                    </svg>
+                </a>
+            </div>
+
+            <!-- Footer Content -->
+            <div class="footer-content">
+                <!-- Left: Contact Info -->
+                <div class="footer-contact">
+                    <div class="footer-contact-item">
+                        <p>Dusternort Str. 104<br>27755 Delmenhorst</p>
+                    </div>
+
+                    <div class="footer-contact-item">
+                        <p>
+                            <a href="mailto:toni-janis@hotmail.com">toni-janis@hotmail.com</a>
+                        </p>
+                        <p>
+                            <a href="tel:+4917634326549">0176 343 26549</a><br>
+                            <a href="tel:+4917687829995">0176 878 29995</a>
+                        </p>
+                    </div>
+
+                    <!-- Social Media -->
+                    <div class="footer-social">
+                        <a href="https://www.facebook.com" target="_blank" rel="noopener" aria-label="Facebook">
+                            <svg viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+                            </svg>
+                        </a>
+                        <a href="https://www.instagram.com" target="_blank" rel="noopener" aria-label="Instagram">
+                            <svg viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+                            </svg>
+                        </a>
+                        <a href="https://wa.me/4917634326549" target="_blank" rel="noopener" aria-label="WhatsApp">
+                            <svg viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Right: Legal Links -->
+                <nav class="footer-nav">
+                    <a href="#">Impressum</a>
+                    <a href="#">Datenschutz</a>
+                </nav>
+            </div>
+
+            <!-- Copyright -->
+            <div class="footer-copyright">
                 <p>© 2024 Toni Janis Garten- und Landschaftsbau. Alle Rechte vorbehalten.</p>
             </div>
         </div>
     </footer>
 
+    <!-- Back to Top Button -->
+    <button class="back-to-top" id="backToTopBtn" aria-label="Zuruck nach oben">
+        <svg viewBox="0 0 17.08543 23.9511" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M6.39644,23.951v-15.67l-2.5,2.5c-.77679.77706-2.03644.77729-2.8135.0005-.77706-.77679-.77729-2.03644-.0005-2.8135L8.55044.5l7.472,7.471c.76601.78812.74808,2.04799-.04004,2.814-.77231.75064-2.00165.75064-2.77396,0l-2.5-2.5.003,15.666"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-linejoin="round"
+                  stroke-width="1.5"/>
+        </svg>
+    </button>
+
     <script>
+        // Wait for DOM to be fully loaded
+        document.addEventListener('DOMContentLoaded', function() {
+
         // Header scroll effect
         window.addEventListener('scroll', () => {
             const header = document.querySelector('header');
@@ -5634,6 +7082,43 @@
                 header.classList.add('scrolled');
             } else {
                 header.classList.remove('scrolled');
+            }
+        });
+
+        // ============ HERO VERSION TOGGLE ============
+        let currentHeroVersion = 1;
+        const heroToggle = document.getElementById('heroToggle');
+        const heroVersionText = document.getElementById('heroVersionText');
+        const hero1 = document.querySelector('.hero');
+        const hero2 = document.querySelector('.hero-alt');
+
+        heroToggle.addEventListener('click', () => {
+            if (currentHeroVersion === 1) {
+                // Switch to version 2
+                hero1.classList.add('fade-out');
+                setTimeout(() => {
+                    hero1.classList.add('inactive');
+                    hero1.classList.remove('fade-out');
+                    hero2.classList.add('active');
+                    setTimeout(() => {
+                        window.scrollTo({ top: 0, behavior: 'smooth' });
+                    }, 50);
+                }, 300);
+                currentHeroVersion = 2;
+                heroVersionText.textContent = 'Version 1';
+            } else {
+                // Switch to version 1
+                hero2.classList.add('fade-out');
+                setTimeout(() => {
+                    hero2.classList.remove('active');
+                    hero2.classList.remove('fade-out');
+                    hero1.classList.remove('inactive');
+                    setTimeout(() => {
+                        window.scrollTo({ top: 0, behavior: 'smooth' });
+                    }, 50);
+                }, 300);
+                currentHeroVersion = 1;
+                heroVersionText.textContent = 'Version 2';
             }
         });
 
@@ -5759,72 +7244,193 @@
             renderCalendar();
         });
 
-        document.getElementById('confirmBooking').addEventListener('click', () => {
-            if (selectedDate && selectedTime) {
-                const dateStr = `${selectedDate.getDate()}. ${months[selectedDate.getMonth()]} ${selectedDate.getFullYear()}`;
-                alert(`Termin gebucht!\n\nDatum: ${dateStr}\nUhrzeit: ${selectedTime} Uhr\n\nWir werden Sie zur Bestätigung kontaktieren.`);
-            }
-        });
+        const confirmBookingBtn = document.getElementById('confirmBooking');
+        if (confirmBookingBtn) {
+            confirmBookingBtn.addEventListener('click', () => {
+                if (selectedDate && selectedTime) {
+                    const dateStr = `${selectedDate.getDate()}. ${months[selectedDate.getMonth()]} ${selectedDate.getFullYear()}`;
+                    alert(`Termin gebucht!\n\nDatum: ${dateStr}\nUhrzeit: ${selectedTime} Uhr\n\nWir werden Sie zur Bestätigung kontaktieren.`);
+                }
+            });
+        }
 
         // Initialize calendar
         renderCalendar();
 
         // ============ BEFORE/AFTER SLIDER FUNCTIONALITY ============
-        const baComparisons = document.querySelectorAll('.ba-comparison');
-
-        baComparisons.forEach(comparison => {
-            const slider = comparison.querySelector('.ba-slider');
-            const afterImage = comparison.querySelector('.ba-after');
-            let isDragging = false;
-
-            function updateSlider(x) {
-                const rect = comparison.getBoundingClientRect();
-                const position = Math.max(0, Math.min(x - rect.left, rect.width));
-                const percentage = (position / rect.width) * 100;
-
-                slider.style.left = percentage + '%';
-                afterImage.style.clipPath = `inset(0 ${100 - percentage}% 0 0)`;
+        // Projects data
+        const baProjects = [
+            {
+                title: 'Komplette Gartenumgestaltung',
+                description: 'Verwandlung eines verwilderten Gartens in eine moderne Wohlfuhloase mit Terrasse, Rasenflache und mediterraner Bepflanzung.',
+                tags: ['Gartengestaltung', 'Rollrasen', 'Pflasterung'],
+                beforeBg: 'linear-gradient(135deg, #8B7355 0%, #A0826D 100%)',
+                afterBg: 'linear-gradient(135deg, #4A7C59 0%, #7CB342 100%)'
+            },
+            {
+                title: 'Terrassen-Neuanlage',
+                description: 'Aus einem alten Betonplatz wurde eine elegante Naturstein-Terrasse mit integrierter Beleuchtung und Hochbeeten.',
+                tags: ['Pflasterarbeiten', 'Beleuchtung'],
+                beforeBg: 'linear-gradient(135deg, #696969 0%, #808080 100%)',
+                afterBg: 'linear-gradient(135deg, #2E5A3C 0%, #4A7C59 100%)'
+            },
+            {
+                title: 'Vorgarten-Modernisierung',
+                description: 'Neugestaltung eines Vorgartens mit pflegeleichter Bepflanzung, Zierkies und modernem Wegesystem.',
+                tags: ['Vorgarten', 'Pflegeleicht', 'Modern'],
+                beforeBg: 'linear-gradient(135deg, #654321 0%, #8B6914 100%)',
+                afterBg: 'linear-gradient(135deg, #228B22 0%, #32CD32 100%)'
             }
+        ];
 
-            // Mouse events
-            slider.addEventListener('mousedown', () => {
-                isDragging = true;
+        let currentBAIndex = 0;
+
+        // Elements
+        const baComparison = document.getElementById('baMainComparison');
+        const baSlider = document.getElementById('baSlider');
+        const baBeforeImage = document.getElementById('baBeforeImage');
+        const baAfterImage = document.getElementById('baAfterImage');
+        const baProjectTitle = document.getElementById('baProjectTitle');
+        const baProjectDescription = document.getElementById('baProjectDescription');
+        const baProjectTags = document.getElementById('baProjectTags');
+        const baPrevBtn = document.getElementById('baPrev');
+        const baNextBtn = document.getElementById('baNext');
+        const baDotsContainer = document.getElementById('baDots');
+
+        // Only initialize if elements exist
+        if (baComparison && baSlider && baBeforeImage && baAfterImage) {
+
+        // Update project display
+        function updateBAProject(index) {
+            const project = baProjects[index];
+
+            // Update images
+            baBeforeImage.style.background = project.beforeBg;
+            baAfterImage.style.background = project.afterBg;
+
+            // Update info
+            baProjectTitle.textContent = project.title;
+            baProjectDescription.textContent = project.description;
+
+            // Update tags
+            baProjectTags.innerHTML = project.tags.map(tag =>
+                `<span class="ba-tag">${tag}</span>`
+            ).join('');
+
+            // Update dots
+            document.querySelectorAll('.ba-dot').forEach((dot, i) => {
+                dot.classList.toggle('active', i === index);
             });
 
-            document.addEventListener('mousemove', (e) => {
-                if (!isDragging) return;
-                updateSlider(e.clientX);
-            });
+            // Update buttons
+            baPrevBtn.disabled = index === 0;
+            baNextBtn.disabled = index === baProjects.length - 1;
+        }
 
-            document.addEventListener('mouseup', () => {
-                isDragging = false;
-            });
+        // Initialize dots
+        function initBADots() {
+            baDotsContainer.innerHTML = baProjects.map((_, i) =>
+                `<div class="ba-dot ${i === 0 ? 'active' : ''}" data-index="${i}"></div>`
+            ).join('');
 
-            // Touch events for mobile
-            slider.addEventListener('touchstart', () => {
-                isDragging = true;
+            // Add click handlers
+            document.querySelectorAll('.ba-dot').forEach(dot => {
+                dot.addEventListener('click', () => {
+                    currentBAIndex = parseInt(dot.dataset.index);
+                    updateBAProject(currentBAIndex);
+                });
             });
+        }
 
-            document.addEventListener('touchmove', (e) => {
-                if (!isDragging) return;
-                updateSlider(e.touches[0].clientX);
-            });
-
-            document.addEventListener('touchend', () => {
-                isDragging = false;
-            });
-
-            // Click anywhere on comparison to move slider
-            comparison.addEventListener('click', (e) => {
-                updateSlider(e.clientX);
-            });
+        // Navigation handlers
+        baPrevBtn.addEventListener('click', () => {
+            if (currentBAIndex > 0) {
+                currentBAIndex--;
+                updateBAProject(currentBAIndex);
+            }
         });
+
+        baNextBtn.addEventListener('click', () => {
+            if (currentBAIndex < baProjects.length - 1) {
+                currentBAIndex++;
+                updateBAProject(currentBAIndex);
+            }
+        });
+
+        // Slider functionality
+        let isDragging = false;
+
+        function updateSlider(x) {
+            const rect = baComparison.getBoundingClientRect();
+            const position = Math.max(0, Math.min(x - rect.left, rect.width));
+            const percentage = (position / rect.width) * 100;
+
+            baSlider.style.left = percentage + '%';
+            baAfterImage.style.clipPath = `inset(0 ${100 - percentage}% 0 0)`;
+        }
+
+        // Mouse events
+        baSlider.addEventListener('mousedown', () => {
+            isDragging = true;
+        });
+
+        document.addEventListener('mousemove', (e) => {
+            if (!isDragging) return;
+            updateSlider(e.clientX);
+        });
+
+        document.addEventListener('mouseup', () => {
+            isDragging = false;
+        });
+
+        // Touch events for mobile
+        baSlider.addEventListener('touchstart', (e) => {
+            e.preventDefault();
+            isDragging = true;
+        });
+
+        document.addEventListener('touchmove', (e) => {
+            if (!isDragging) return;
+            updateSlider(e.touches[0].clientX);
+        });
+
+        document.addEventListener('touchend', () => {
+            isDragging = false;
+        });
+
+        // Click anywhere on comparison to move slider
+        baComparison.addEventListener('click', (e) => {
+            if (e.target === baSlider || e.target.parentElement === baSlider) return;
+            updateSlider(e.clientX);
+        });
+
+        // Initialize
+        initBADots();
+        updateBAProject(currentBAIndex);
+
+        } // End of Before/After check
+
+        // ============ JOB ACCORDION FUNCTIONALITY ============
+        function toggleJobCard(headerElement) {
+            const card = headerElement.closest('.job-card');
+            const content = card.querySelector('.job-content');
+            const button = card.querySelector('.job-toggle-btn');
+
+            // Toggle active states
+            button.classList.toggle('active');
+            content.classList.toggle('active');
+        }
+
+        // Make toggleJobCard globally accessible
+        window.toggleJobCard = toggleJobCard;
 
         // ============ IMAGE UPLOAD FUNCTIONALITY ============
         const uploadArea = document.getElementById('uploadArea');
         const uploadInput = document.getElementById('projectPhotos');
         const previewGrid = document.getElementById('imagePreviewGrid');
         const uploadCountEl = document.getElementById('uploadCount');
+
+        if (uploadArea && uploadInput) {
         let uploadedFiles = [];
         const MAX_FILES = 10;
         const MAX_FILE_SIZE = 5 * 1024 * 1024; // 5MB
@@ -5924,6 +7530,8 @@
 
         // Make removeImage available globally
         window.removeImage = removeImage;
+
+        } // End of uploadArea check
 
         // ============ ENTSORGEN IMAGE UPLOAD WITH QUALITY CHECK ============
         const entsorgenUploadArea = document.getElementById('entsorgenUploadArea');
@@ -6753,159 +8361,6 @@
             });
         });
 
-        // Calendar functionality
-        let currentDate = new Date();
-        let selectedDate = null;
-        let selectedTime = null;
-
-        function generateCalendar() {
-            const calendarGrid = document.getElementById('calendarGrid');
-            const monthDisplay = document.getElementById('currentMonth');
-
-            if (!calendarGrid) return;
-
-            const year = currentDate.getFullYear();
-            const month = currentDate.getMonth();
-
-            // Update month display
-            const monthNames = ['Januar', 'Februar', 'März', 'April', 'Mai', 'Juni',
-                              'Juli', 'August', 'September', 'Oktober', 'November', 'Dezember'];
-            if (monthDisplay) {
-                monthDisplay.textContent = `${monthNames[month]} ${year}`;
-            }
-
-            // Get first day of month and number of days
-            const firstDay = new Date(year, month, 1);
-            const lastDay = new Date(year, month + 1, 0);
-            const daysInMonth = lastDay.getDate();
-
-            // Get day of week (0 = Sunday, adjust to Monday = 0)
-            let startDay = firstDay.getDay() - 1;
-            if (startDay === -1) startDay = 6;
-
-            // Clear existing days
-            const existingDays = calendarGrid.querySelectorAll('.cal-day');
-            existingDays.forEach(day => day.remove());
-
-            // Add empty cells for days before month starts
-            for (let i = 0; i < startDay; i++) {
-                const emptyDay = document.createElement('div');
-                emptyDay.className = 'cal-day empty';
-                calendarGrid.appendChild(emptyDay);
-            }
-
-            // Add days of month
-            const today = new Date();
-            for (let day = 1; day <= daysInMonth; day++) {
-                const dayElement = document.createElement('button');
-                dayElement.className = 'cal-day';
-                dayElement.textContent = day;
-                dayElement.type = 'button';
-
-                const dateObj = new Date(year, month, day);
-
-                // Disable past dates
-                if (dateObj < today.setHours(0, 0, 0, 0)) {
-                    dayElement.classList.add('disabled');
-                    dayElement.disabled = true;
-                } else {
-                    dayElement.addEventListener('click', () => selectDate(dateObj, dayElement));
-                }
-
-                calendarGrid.appendChild(dayElement);
-            }
-        }
-
-        function selectDate(date, element) {
-            // Remove previous selection
-            document.querySelectorAll('.cal-day').forEach(d => d.classList.remove('selected'));
-
-            // Add selection to clicked day
-            element.classList.add('selected');
-            selectedDate = date;
-            appointmentData.date = date.toLocaleDateString('de-DE');
-
-            // Update selected date display
-            const dateDisplay = document.getElementById('selectedDateDisplay');
-            if (dateDisplay) {
-                dateDisplay.textContent = appointmentData.date;
-            }
-        }
-
-        // Time slot selection
-        document.querySelectorAll('.time-slot').forEach(slot => {
-            slot.addEventListener('click', function() {
-                // Remove previous selection
-                document.querySelectorAll('.time-slot').forEach(s => s.classList.remove('selected'));
-
-                // Select this slot
-                this.classList.add('selected');
-                selectedTime = this.dataset.time;
-                appointmentData.time = selectedTime;
-            });
-        });
-
-        // Calendar navigation
-        document.getElementById('prevMonth')?.addEventListener('click', () => {
-            currentDate.setMonth(currentDate.getMonth() - 1);
-            generateCalendar();
-        });
-
-        document.getElementById('nextMonth')?.addEventListener('click', () => {
-            currentDate.setMonth(currentDate.getMonth() + 1);
-            generateCalendar();
-        });
-
-        // Initialize calendar
-        generateCalendar();
-
-        // Update appointment summary
-        function updateAppointmentSummary() {
-            const typeLabels = {
-                'erstberatung': 'Erstberatung (60 Min.)',
-                'projektbesprechung': 'Projektbesprechung',
-                'notfall': 'Notfall/Dringend'
-            };
-
-            document.getElementById('summaryConsultationType').textContent =
-                typeLabels[appointmentData.consultationType] || '--';
-            document.getElementById('summaryDate').textContent = appointmentData.date || '--';
-            document.getElementById('summaryTime').textContent =
-                appointmentData.time ? appointmentData.time + ' Uhr' : '--';
-        }
-
-        // Handle final form submission
-        document.getElementById('finalAppointmentForm')?.addEventListener('submit', (e) => {
-            e.preventDefault();
-
-            const formData = new FormData(e.target);
-
-            alert(`Termin erfolgreich gebucht!\n\n` +
-                  `Beratungsart: ${appointmentData.consultationType}\n` +
-                  `Datum: ${appointmentData.date}\n` +
-                  `Uhrzeit: ${appointmentData.time}\n\n` +
-                  `Wir senden Ihnen eine Bestätigung per E-Mail.`);
-
-            // Reset stepper
-            nextAppointmentStep(1);
-            appointmentData = {
-                consultationType: '',
-                date: '',
-                time: '',
-                firstName: '',
-                lastName: '',
-                email: '',
-                phone: ''
-            };
-
-            e.target.reset();
-            selectedDate = null;
-            selectedTime = null;
-        });
-
-        // Make function global
-        window.nextAppointmentStep = nextAppointmentStep;
-
         // ============ PARALLAX EFFECT ============
         const hero = document.querySelector('.hero');
 
@@ -6934,6 +8389,96 @@
         // Apply parallax effect on scroll
         window.addEventListener('scroll', throttle(parallaxEffect, 10));
 
+        // ============ CONTACT MODAL FUNCTIONALITY ============
+        const contactModal = document.getElementById('contactModal');
+
+        function openContactModal() {
+            if (contactModal) {
+                contactModal.classList.add('active');
+                document.body.style.overflow = 'hidden'; // Prevent background scrolling
+            }
+        }
+
+        function closeContactModal() {
+            if (contactModal) {
+                contactModal.classList.remove('active');
+                document.body.style.overflow = ''; // Restore scrolling
+            }
+        }
+
+        // Make functions global
+        window.openContactModal = openContactModal;
+        window.closeContactModal = closeContactModal;
+
+        // Close modal on ESC key
+        if (contactModal) {
+            document.addEventListener('keydown', (e) => {
+                if (e.key === 'Escape' && contactModal.classList.contains('active')) {
+                    closeContactModal();
+                }
+            });
+        }
+
+        // Form submission handler
+        function submitContactForm(event) {
+            event.preventDefault();
+
+            // Get form data
+            const formData = new FormData(event.target);
+
+            // Show success message
+            alert('Vielen Dank für Ihre Anfrage! Wir melden uns schnellstmöglich bei Ihnen.');
+
+            // Close modal
+            closeContactModal();
+
+            // Reset form
+            event.target.reset();
+
+            // In a real implementation, you would send the data to a server here
+            // Example:
+            // fetch('/api/contact', {
+            //     method: 'POST',
+            //     body: formData
+            // });
+        }
+
+        // Make function global
+        window.submitContactForm = submitContactForm;
+
+        // ============ ACCORDION / FAQ FUNCTIONALITY ============
+        function toggleAccordion(button) {
+            const item = button.closest('.accordion-item');
+            const isActive = item.classList.contains('active');
+
+            // Close all accordion items
+            document.querySelectorAll('.accordion-item').forEach(accordionItem => {
+                accordionItem.classList.remove('active');
+            });
+
+            // Open clicked item if it wasn't active
+            if (!isActive) {
+                item.classList.add('active');
+            }
+        }
+
+        // Make function global
+        window.toggleAccordion = toggleAccordion;
+
+        // ============ BACK TO TOP BUTTON FUNCTIONALITY ============
+        const backToTopBtn = document.getElementById('backToTopBtn');
+
+        // Scroll to top when clicked
+        backToTopBtn.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+
+        }); // End of DOMContentLoaded
+
     </script>
+
 </body>
 </html>
