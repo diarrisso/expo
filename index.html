@@ -4607,6 +4607,169 @@
             font-weight: 600;
         }
 
+        /* Stepper Styles */
+        .stepper-indicator {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem 2rem 1rem;
+            gap: 0;
+        }
+
+        .stepper-step {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0.5rem;
+            position: relative;
+        }
+
+        .stepper-step-circle {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: var(--sand-beige);
+            color: var(--earth-brown);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 600;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            border: 2px solid var(--sand-beige);
+        }
+
+        .stepper-step.active .stepper-step-circle {
+            background: var(--kiwi-green);
+            color: white;
+            border-color: var(--kiwi-green);
+            transform: scale(1.1);
+        }
+
+        .stepper-step.completed .stepper-step-circle {
+            background: var(--kiwi-dark);
+            color: white;
+            border-color: var(--kiwi-dark);
+        }
+
+        .stepper-step-label {
+            font-size: 0.85rem;
+            font-weight: 500;
+            color: var(--earth-brown);
+            opacity: 0.6;
+            transition: opacity 0.3s ease;
+        }
+
+        .stepper-step.active .stepper-step-label {
+            opacity: 1;
+            font-weight: 600;
+        }
+
+        .stepper-line {
+            width: 80px;
+            height: 2px;
+            background: var(--sand-beige);
+            margin: 0 -10px;
+            margin-bottom: 1.5rem;
+            transition: background 0.3s ease;
+        }
+
+        .stepper-step.completed ~ .stepper-line {
+            background: var(--kiwi-green);
+        }
+
+        /* Form Steps */
+        .form-step {
+            display: none;
+            animation: fadeIn 0.4s ease;
+        }
+
+        .form-step.active {
+            display: block;
+        }
+
+        .form-step h3 {
+            font-family: var(--font-display);
+            font-size: 1.5rem;
+            color: var(--earth-brown);
+            margin-bottom: 1.5rem;
+            text-align: center;
+        }
+
+        .service-selection-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+
+        .service-option {
+            position: relative;
+            cursor: pointer;
+        }
+
+        .service-option input[type="radio"] {
+            position: absolute;
+            opacity: 0;
+            pointer-events: none;
+        }
+
+        .service-option-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0.75rem;
+            padding: 1.5rem 1rem;
+            background: white;
+            border: 2px solid var(--sand-beige);
+            border-radius: 12px;
+            transition: all 0.3s ease;
+        }
+
+        .service-option:hover .service-option-content {
+            border-color: var(--kiwi-light);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(139, 195, 74, 0.2);
+        }
+
+        .service-option input[type="radio"]:checked + .service-option-content {
+            background: var(--kiwi-green);
+            border-color: var(--kiwi-green);
+            color: white;
+        }
+
+        .service-icon {
+            font-size: 2rem;
+        }
+
+        .service-name {
+            font-size: 0.95rem;
+            font-weight: 600;
+            text-align: center;
+        }
+
+        .stepper-navigation {
+            display: flex;
+            gap: 1rem;
+            margin-top: 2rem;
+            justify-content: space-between;
+        }
+
+        .stepper-navigation .btn {
+            flex: 1;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
         /* Floating Contact Button */
         .floating-contact-btn {
             position: fixed;
@@ -4804,6 +4967,7 @@
             grid-template-columns: 1fr auto;
             gap: 3rem;
             margin-bottom: 2rem;
+            align-items: end;
         }
 
         .footer-contact {
@@ -6720,50 +6884,130 @@
                 <p>Lassen Sie uns gemeinsam Ihren Traumgarten verwirklichen</p>
             </div>
 
+            <!-- Stepper Indicator -->
+            <div class="stepper-indicator">
+                <div class="stepper-step active" data-step="1">
+                    <div class="stepper-step-circle">1</div>
+                    <div class="stepper-step-label">Service</div>
+                </div>
+                <div class="stepper-line"></div>
+                <div class="stepper-step" data-step="2">
+                    <div class="stepper-step-circle">2</div>
+                    <div class="stepper-step-label">Kontakt</div>
+                </div>
+                <div class="stepper-line"></div>
+                <div class="stepper-step" data-step="3">
+                    <div class="stepper-step-circle">3</div>
+                    <div class="stepper-step-label">Details</div>
+                </div>
+            </div>
+
             <div class="contact-modal-body">
                 <form class="contact-form" id="contactModalForm" onsubmit="submitContactForm(event)">
-                    <div class="form-row">
-                        <div class="form-group">
-                            <label>Vorname *</label>
-                            <input type="text" placeholder="Ihr Vorname" required>
-                        </div>
-                        <div class="form-group">
-                            <label>Nachname *</label>
-                            <input type="text" placeholder="Ihr Nachname" required>
+
+                    <!-- Step 1: Service Selection -->
+                    <div class="form-step active" data-step="1">
+                        <h3>Welche Leistung benötigen Sie?</h3>
+                        <div class="service-selection-grid">
+                            <label class="service-option">
+                                <input type="radio" name="service" value="gestaltung" required>
+                                <div class="service-option-content">
+                                    <span class="service-icon">🌳</span>
+                                    <span class="service-name">Gartengestaltung</span>
+                                </div>
+                            </label>
+                            <label class="service-option">
+                                <input type="radio" name="service" value="pflege">
+                                <div class="service-option-content">
+                                    <span class="service-icon">✂️</span>
+                                    <span class="service-name">Gartenpflege</span>
+                                </div>
+                            </label>
+                            <label class="service-option">
+                                <input type="radio" name="service" value="pflaster">
+                                <div class="service-option-content">
+                                    <span class="service-icon">🧱</span>
+                                    <span class="service-name">Pflasterarbeiten</span>
+                                </div>
+                            </label>
+                            <label class="service-option">
+                                <input type="radio" name="service" value="rasen">
+                                <div class="service-option-content">
+                                    <span class="service-icon">🌱</span>
+                                    <span class="service-name">Rollrasen</span>
+                                </div>
+                            </label>
+                            <label class="service-option">
+                                <input type="radio" name="service" value="zaun">
+                                <div class="service-option-content">
+                                    <span class="service-icon">🪵</span>
+                                    <span class="service-name">Zaunbau</span>
+                                </div>
+                            </label>
+                            <label class="service-option">
+                                <input type="radio" name="service" value="winter">
+                                <div class="service-option-content">
+                                    <span class="service-icon">❄️</span>
+                                    <span class="service-name">Winterdienst</span>
+                                </div>
+                            </label>
                         </div>
                     </div>
-                    <div class="form-row">
+
+                    <!-- Step 2: Contact Info -->
+                    <div class="form-step" data-step="2">
+                        <h3>Ihre Kontaktdaten</h3>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label>Vorname *</label>
+                                <input type="text" name="firstname" placeholder="Ihr Vorname" required>
+                            </div>
+                            <div class="form-group">
+                                <label>Nachname *</label>
+                                <input type="text" name="lastname" placeholder="Ihr Nachname" required>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label>E-Mail *</label>
+                                <input type="email" name="email" placeholder="ihre@email.de" required>
+                            </div>
+                            <div class="form-group">
+                                <label>Telefon *</label>
+                                <input type="tel" name="phone" placeholder="0176 123 4567" required>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Step 3: Project Details -->
+                    <div class="form-step" data-step="3">
+                        <h3>Projektdetails</h3>
                         <div class="form-group">
-                            <label>E-Mail *</label>
-                            <input type="email" placeholder="ihre@email.de" required>
+                            <label>Beschreiben Sie Ihr Projekt *</label>
+                            <textarea name="message" placeholder="Beschreiben Sie Ihr Projekt so detailliert wie möglich..." rows="6" required></textarea>
                         </div>
                         <div class="form-group">
-                            <label>Telefon *</label>
-                            <input type="tel" placeholder="0176 123 4567" required>
+                            <label>Bevorzugter Kontaktweg</label>
+                            <select name="contact_method">
+                                <option value="email">E-Mail</option>
+                                <option value="phone">Telefon</option>
+                                <option value="whatsapp">WhatsApp</option>
+                            </select>
                         </div>
                     </div>
-                    <div class="form-group">
-                        <label>Gewünschte Leistung</label>
-                        <select>
-                            <option value="">Bitte wählen...</option>
-                            <option value="gestaltung">Gartengestaltung</option>
-                            <option value="pflege">Gartenpflege</option>
-                            <option value="pflaster">Pflasterarbeiten</option>
-                            <option value="rasen">Rollrasen verlegen</option>
-                            <option value="zaun">Zaunbau</option>
-                            <option value="winter">Winterdienst</option>
-                            <option value="beratung">Kostenlose Beratung</option>
-                            <option value="sonstiges">Sonstiges</option>
-                        </select>
+
+                    <!-- Navigation Buttons -->
+                    <div class="stepper-navigation">
+                        <button type="button" class="btn btn-secondary" id="prevStepBtn" onclick="previousContactStep()" style="display: none;">
+                            ← Zurück
+                        </button>
+                        <button type="button" class="btn btn-primary" id="nextStepBtn" onclick="nextContactStep()">
+                            Weiter →
+                        </button>
+                        <button type="submit" class="btn btn-primary" id="submitStepBtn" style="display: none;">
+                            Anfrage senden →
+                        </button>
                     </div>
-                    <div class="form-group">
-                        <label>Ihre Nachricht *</label>
-                        <textarea placeholder="Beschreiben Sie Ihr Projekt so detailliert wie möglich..." rows="4" required></textarea>
-                    </div>
-                    <button type="submit" class="btn btn-primary" style="width: 100%;">
-                        Anfrage senden
-                        <span>→</span>
-                    </button>
                 </form>
 
                 <div class="contact-modal-info">
@@ -8432,8 +8676,9 @@
             // Close modal
             closeContactModal();
 
-            // Reset form
+            // Reset form and stepper
             event.target.reset();
+            resetContactStepper();
 
             // In a real implementation, you would send the data to a server here
             // Example:
@@ -8442,6 +8687,91 @@
             //     body: formData
             // });
         }
+
+        // ============ CONTACT MODAL STEPPER FUNCTIONALITY ============
+        let currentContactStep = 1;
+        const totalContactSteps = 3;
+
+        function updateContactStepper() {
+            // Update step visibility
+            document.querySelectorAll('.form-step').forEach(step => {
+                const stepNumber = parseInt(step.dataset.step);
+                step.classList.toggle('active', stepNumber === currentContactStep);
+            });
+
+            // Update stepper indicators
+            document.querySelectorAll('.stepper-step').forEach(step => {
+                const stepNumber = parseInt(step.dataset.step);
+                step.classList.remove('active', 'completed');
+                if (stepNumber < currentContactStep) {
+                    step.classList.add('completed');
+                } else if (stepNumber === currentContactStep) {
+                    step.classList.add('active');
+                }
+            });
+
+            // Update buttons
+            const prevBtn = document.getElementById('prevStepBtn');
+            const nextBtn = document.getElementById('nextStepBtn');
+            const submitBtn = document.getElementById('submitStepBtn');
+
+            if (prevBtn && nextBtn && submitBtn) {
+                prevBtn.style.display = currentContactStep === 1 ? 'none' : 'block';
+                nextBtn.style.display = currentContactStep === totalContactSteps ? 'none' : 'block';
+                submitBtn.style.display = currentContactStep === totalContactSteps ? 'block' : 'none';
+            }
+        }
+
+        function nextContactStep() {
+            // Validate current step
+            const currentStepEl = document.querySelector(`.form-step[data-step="${currentContactStep}"]`);
+            const inputs = currentStepEl.querySelectorAll('input[required], textarea[required], select[required]');
+
+            let isValid = true;
+            inputs.forEach(input => {
+                if (!input.checkValidity()) {
+                    input.reportValidity();
+                    isValid = false;
+                }
+            });
+
+            // Check if a service is selected in step 1
+            if (currentContactStep === 1) {
+                const serviceSelected = document.querySelector('input[name="service"]:checked');
+                if (!serviceSelected) {
+                    alert('Bitte wählen Sie eine Leistung aus.');
+                    return;
+                }
+            }
+
+            if (isValid && currentContactStep < totalContactSteps) {
+                currentContactStep++;
+                updateContactStepper();
+            }
+        }
+
+        function previousContactStep() {
+            if (currentContactStep > 1) {
+                currentContactStep--;
+                updateContactStepper();
+            }
+        }
+
+        function resetContactStepper() {
+            currentContactStep = 1;
+            updateContactStepper();
+        }
+
+        // Make stepper functions global
+        window.nextContactStep = nextContactStep;
+        window.previousContactStep = previousContactStep;
+
+        // Initialize stepper when modal opens
+        const originalOpenContactModal = openContactModal;
+        window.openContactModal = function() {
+            originalOpenContactModal();
+            resetContactStepper();
+        };
 
         // Make function global
         window.submitContactForm = submitContactForm;
